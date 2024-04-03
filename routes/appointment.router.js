@@ -16,7 +16,7 @@ router.get('/booked-appointment-services-list' , appointmentController.getListOf
 
 
 
-// Appointment : READ
+// Appointment : WRITE
 
 router.get('/create-appointment-book-service' , appointmentController.createAppointmentBookService);
 router.get('/update-appointment-book-service' , appointmentController.updateAppointmentBookService);
