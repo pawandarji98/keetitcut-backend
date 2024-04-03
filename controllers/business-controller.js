@@ -33,3 +33,22 @@ exports.getListOfBusinesses = customRapper(async (req, res, next) => {
       return next(new AppError(`Error while getting all businesses ${e}`, 500));
     }
   });
+
+  exports.getListOfClients = customRapper(async (req, res, next) => {
+    try {
+      const response = await apiAxios.get(`/clients?TenantId=4&LocationId=3`, {
+        headers: { 
+          'Accept': 'application/json', 
+          'Authorization': req.body.token
+        }
+      });
+  
+      res.json({
+        status: 'success',
+        data: response.data
+      });
+  
+    } catch (e) {
+      return next(new AppError(`Error while getting all services ${e}`, 500));
+    }
+});
