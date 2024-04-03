@@ -5,16 +5,32 @@ require('dotenv').config();
 
 exports.getListOfServices = customRapper(async (req, res, next) => {
     try {
+      const detailService = []
       const response = await apiAxios.get("/services?TenantId=4&LocationId=3", {
         headers: { 
           'Accept': 'application/json', 
           'Authorization': req.body.token
         }
       });
+
+      for(let data of response.data.data) {
+        const response = await apiAxios.get(`/service/${data.serviceId}/addons?TenantId=4&LocationId=3`, {
+          headers: { 
+            'Accept': 'application/json', 
+            'Authorization': req.body.token
+          }
+        });
+        const Maindata = {
+          service:data,
+          addOns:response.data
+        }
+        detailService.push(Maindata);
+       
+      }
   
       res.json({
         status: 'success',
-        data: response.data
+        data: detailService
       });
   
     } catch (e) {
