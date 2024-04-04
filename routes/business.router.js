@@ -4,8 +4,8 @@ const businessController = require('../controllers/business-controller')
 
 
 // ROUTES
-router.get('/get-list' , businessController.getListOfBusinesses);
+router.post('/get-list' , businessController.getListOfBusinesses);
 
-router.get('/get-list/client' , businessController.getListOfClients);
+router.post('/get-list/client' , businessController.getListOfClients);
 
 module.exports = router;

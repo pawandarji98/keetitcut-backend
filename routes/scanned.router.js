@@ -3,7 +3,7 @@ const router = express.Router();
 const scannedController = require('../controllers/scan-controller')
 
 // ROUTES
-router.get('/scanned' , scannedController.getListOfScanned);
+router.post('/scanned' , scannedController.getListOfScanned);
 
 
 

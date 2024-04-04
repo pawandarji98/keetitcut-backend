@@ -5,7 +5,7 @@ const scannedController = require('../controllers/scan-controller')
 
 // ROUTES
 router.get('/login' , AuthorController.generateToken);
-router.get('/scanned' , scannedController.getListOfScanned);
+router.post('/scanned' , scannedController.getListOfScanned);
 
 
 

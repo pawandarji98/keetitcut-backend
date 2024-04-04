@@ -6,22 +6,22 @@ const appointmentController = require('../controllers/appointments-controllers')
 
 // Appointment : READ
 
-router.get('/appointment-categories-list' , appointmentController.getListOfAppointmentCategories);
-router.get('/appointment-cancellation-reason-list' , appointmentController.getListOfAppointmentCancellationReasons);
-router.get('/booked-appointment-service-detail' , appointmentController.getDetailOfBookedService);
-router.get('/appointment-detail' , appointmentController.getDetailOfAppointment);
-router.get('/appointment-category-detail' , appointmentController.getDetailOfAppointmentCategory);
-router.get('/appointment-cancellation-reason-detail' , appointmentController.getDetailOfAppointmentCancellationReason);
-router.get('/booked-appointment-services-list' , appointmentController.getListOfBookedAppointmentServices);
+router.post('/appointment-categories-list' , appointmentController.getListOfAppointmentCategories);
+router.post('/appointment-cancellation-reason-list' , appointmentController.getListOfAppointmentCancellationReasons);
+router.post('/booked-appointment-service-detail' , appointmentController.getDetailOfBookedService);
+router.post('/appointment-detail' , appointmentController.getDetailOfAppointment);
+router.post('/appointment-category-detail' , appointmentController.getDetailOfAppointmentCategory);
+router.post('/appointment-cancellation-reason-detail' , appointmentController.getDetailOfAppointmentCancellationReason);
+router.post('/booked-appointment-services-list' , appointmentController.getListOfBookedAppointmentServices);
 
 
 
 // Appointment : WRITE
 
-router.get('/create-appointment-book-service' , appointmentController.createAppointmentBookService);
-router.get('/update-appointment-book-service' , appointmentController.updateAppointmentBookService);
-router.get('/cancle-appointment-book-service' , appointmentController.cancleAppointmentBookService);
-router.get('/update-appointment' , appointmentController.updateAppointment);
+router.post('/create-appointment-book-service' , appointmentController.createAppointmentBookService);
+router.post('/update-appointment-book-service' , appointmentController.updateAppointmentBookService);
+router.post('/cancle-appointment-book-service' , appointmentController.cancleAppointmentBookService);
+router.post('/update-appointment' , appointmentController.updateAppointment);
 
 
 
