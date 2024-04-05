@@ -20,8 +20,15 @@ exports.getListOfServices = customRapper(async (req, res, next) => {
             'Authorization': req.body.token
           }
         });
+        const Detailresponse = await apiAxios.get(`/services/lookup/?ServiceIds=${data.serviceId}&TenantId=4&LocationId=3`, {
+          headers: { 
+            'Accept': 'application/json', 
+            'Authorization': req.body.token
+          }
+        });
         const Maindata = {
           service:data,
+          serviceDetail:Detailresponse.data,
           addOns:response.data
         }
         detailService.push(Maindata);
