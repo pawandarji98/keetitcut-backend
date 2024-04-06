@@ -17,6 +17,7 @@ exports.reAuthStratergy = customRapper(async (req, res, next) => {
         Authorization: req.body.token,
       },
     });
+    next();
   } catch (e) {
     if ((e.message = Configs.RE_AUTH_MSG)) {
       if (numberOfRetries <= maxNumberOfRetries) {
