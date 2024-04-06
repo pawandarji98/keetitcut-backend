@@ -4,6 +4,7 @@ require('dotenv').config();
 const qs = require('qs');
 const AppError = require('../utils/app-error');
 const axios = require('axios');
+const { Configs } = require("../utils/config_assests");
 
 
 
@@ -34,10 +35,31 @@ exports.createClient = customRapper(async (req, res, next) => {
 
         return next(new AppError(`Error while generating access token ${JSON.stringify(error.config)}`, 500));
       });
-
-    
-
   } catch (e) {
     return next(new AppError(`Error while generating access token ${e}`, 500));
+  }
+});
+
+
+exports.clientChangesDDS = customRapper(async (req, res, next) => {
+  try {
+    const response = await apiAxios.get(Configs.CLIENT_DDS_API_URL, {
+      params: {
+        TenantId: req.body.TenantId,
+        LocationId: req.body.LocationId,
+        StartDate: req.body.StartDate
+      },
+      headers: {
+        Accept: "application/json",
+        Authorization: req.body.token,
+      },
+    });
+
+    res.json({
+      status: "success",
+      data: response.data,
+    });
+  } catch (e) {
+    return next(new AppError(`Error while getting all client changes from DDS ${e}`, 500));
   }
 });

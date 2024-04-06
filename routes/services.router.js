@@ -1,11 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const servicesController = require('../controllers/services-controller')
+const servicesController = require('../controllers/services-controller');
+const reAuthMiddleWare = require("../middleware/reAuth");
+
 
 // ROUTES
-router.post('/get-list' , servicesController.getListOfServices);
-router.post('/get-list/addons' , servicesController.getListOfAddonsOnService);
-
-
-
+router.post('/get-list' , reAuthMiddleWare.reAuthStratergy, servicesController.getListOfServices);
 module.exports = router;

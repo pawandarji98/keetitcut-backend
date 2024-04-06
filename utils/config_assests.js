@@ -1,0 +1,15 @@
+exports.Configs = {
+    RE_AUTH_API_URL : "/locations",
+    RE_AUTH_MSG: "Request failed with status code 401",
+    LIST_OF_BUSINESS_API_URL: "/locations",
+    LIST_OF_BUSINESS_WITH_DETAIL_API_URL:"businessInformation",
+    LIST_OF_SERVICES_API_URL: "/services",
+    SERVICE_LOOKUP_API_URL: "/services/lookup",
+    GET_LIST_OF_SCANNED: "/scan/openings",
+    AUTH_API_URL: "/oauth2/token",
+    CLIENT_DDS_API_URL: "/cdc/entity/Client/changes",
+    EMPLOYEE_DDS_API_URL: "/cdc/entity/Employee/changes",
+    APPOINTMENT_DDS_API_URL: "/cdc/entity/Appointment/changes",
+    SALES_DDS_API_URL: "/cdc/entity/Sale/changes",
+    LIST_OF_EMPLOYEEE: "/employees",
+};

@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const scannedController = require('../controllers/scan-controller')
+const scannedController = require('../controllers/scan-controller');
+const reAuthMiddleWare = require("../middleware/reAuth");
+
 
 // ROUTES
-router.post('/scanned' , scannedController.getListOfScanned);
+router.post('/scanned' , reAuthMiddleWare.reAuthStratergy, scannedController.getListOfScanned);
 
 
 
